@@ -17,6 +17,8 @@ async def on_ready():
     r = g.roles[1]
     
     await app.change_presence(status=discord.Status.online, activity=None)    
+
+@commands.has_permissions(administrator=True)    
     
 @app.command()
 async def change_color(ctx):
