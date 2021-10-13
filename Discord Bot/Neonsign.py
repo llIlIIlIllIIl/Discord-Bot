@@ -4,7 +4,7 @@ from discord import Colour
 import asyncio
 from discord.ext import tasks
 
-app = commands.Bot(command_prefix='/')
+app = commands.Bot(command_prefix='!')
 
 @app.event
 async def on_ready():
@@ -19,7 +19,7 @@ async def on_ready():
     await app.change_presence(status=discord.Status.online, activity=None)     
     
 @app.command()
-async def change_color(ctx):
+async def color(ctx):
     g = app.guilds[1]
     r = g.roles[1]
     if neonsign_nickname.is_running():
