@@ -31,4 +31,4 @@ async def color(ctx):
 async def neonsign_nickname(role):
     await role.edit(colour=Colour.random())
      
-app.run('ODkyNzIzODY5NTYyMDUyNjI4.YVRD5A.5SrVawYTuD1Ir7IRpoMf7VyQ9I8')
+app.run('?')
