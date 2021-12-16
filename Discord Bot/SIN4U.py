@@ -60,11 +60,11 @@ async def leave(ctx):
 # Greeting
 @app.command(aliases=['반가워'])
 async def 안녕(ctx):
-    await ctx.send(f'{ctx.author.mention} 안녕하세요!')
+    await ctx.send(f'{ctx.author.mention}님 안녕하세요!')
     
 # Vote
 @app.command()
-async def vote(ctx, *args):
+async def 투표(ctx, *args):
 
     await ctx.send("투표 시작!!")
     for arg in args:
@@ -74,25 +74,28 @@ async def vote(ctx, *args):
         
 # Neonsign
 @app.command()
-async def change(ctx):
+async def 반짝반짝(ctx):
     g = app.guilds[0]
     r = g.roles[1]
     if neonsign_nickname.is_running():
         neonsign_nickname.stop()
     else:
         neonsign_nickname.start(r)
-
+        
 @tasks.loop(seconds=1)
 async def neonsign_nickname(role):
     await role.edit(colour=Colour.random())
+
 
 # Help    
 @app.command()
 async def 도움말(ctx):
         embed = discord.Embed(title="Sin4U", description="노래하는 봇", color=0x4432a8)
         embed.add_field(name="1. 인사", value="!안녕", inline = False)
-        embed.add_field(name="2. 음성채널 입장/퇴장", value="!join / !leave (초대자가 입장된 상태에만 가능", inline = False)
-        embed.add_field(name="3. 음악", value="!play [Youtube URL] : 음악을 재생\n!pause : 일시정지 \n!resume :다시 재생 \n!stop : 중지", inline = False)
+        embed.add_field(name="2. 투표", value="!투표", inline = False)
+        embed.add_field(name="3. 네온사인", value="!반짝반짝 (역할 필요)", inline=False)
+        embed.add_field(name="4. 음성채널 입장/퇴장", value="!join / !leave (초대자가 입장된 상태에만 가능)", inline = False)
+        embed.add_field(name="5. 음악", value="!play [Youtube URL] : 음악을 재생\n!pause : 일시정지 \n!resume :다시 재생 \n!stop : 중지", inline = False)
         embed.set_image(url="https://blog.kakaocdn.net/dn/WsyUB/btre7ur4HG7/HSR4G7FZCoTAig48akq8K0/img.jpg")
         await ctx.send(embed=embed)
         
