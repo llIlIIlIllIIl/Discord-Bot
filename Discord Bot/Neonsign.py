@@ -19,7 +19,7 @@ async def on_ready():
     await app.change_presence(status=discord.Status.online, activity=None)     
     
 @app.command()
-async def gimojji(ctx):
+async def change(ctx):
     g = app.guilds[0]
     r = g.roles[1]
     if neonsign_nickname.is_running():
@@ -27,7 +27,7 @@ async def gimojji(ctx):
     else:
         neonsign_nickname.start(r)
         
-@tasks.loop(seconds=0.5)
+@tasks.loop(seconds=1)
 async def neonsign_nickname(role):
     await role.edit(colour=Colour.random())
      
