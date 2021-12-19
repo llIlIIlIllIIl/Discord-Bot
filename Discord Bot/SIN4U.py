@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord import Colour
 import asyncio
+from discord.ext import tasks
 
 
 app = commands.Bot(command_prefix='!')
@@ -17,7 +18,7 @@ async def on_ready():
     """
 
     # 'comment'라는 게임 중으로 설정합니다.
-    game = discord.Game("!help")
+    game = discord.Game("!도움말")
     await app.change_presence(status=discord.Status.online, activity=game)
     print("READY")
 
@@ -92,4 +93,4 @@ async def 도움말(ctx):
         await ctx.send(embed=embed)
         
 # Token
-app.run('?')
+app.run('OTIwNjUzMTcyMTUyODY4ODg1.YbnfFQ.TZXlHSQkKMX50cpd-HPR20cJDvg')
