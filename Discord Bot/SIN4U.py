@@ -93,4 +93,4 @@ async def 도움말(ctx):
         await ctx.send(embed=embed)
         
 # Token
-app.run('OTIwNjUzMTcyMTUyODY4ODg1.YbnfFQ.TZXlHSQkKMX50cpd-HPR20cJDvg')
+app.run('?')
