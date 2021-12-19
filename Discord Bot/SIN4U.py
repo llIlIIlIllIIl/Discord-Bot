@@ -1,16 +1,8 @@
 import discord
 from discord.ext import commands
 from discord import Colour
-from discord.ext import tasks
-from discord import voice_client
-from youtube_dl import YoutubeDL
-import time
 import asyncio
-import bs4
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from discord.utils import get 
-from discord import FFmpegPCMAudio
+
 
 app = commands.Bot(command_prefix='!')
 
@@ -100,4 +92,4 @@ async def 도움말(ctx):
         await ctx.send(embed=embed)
         
 # Token
-app.run('OTIwNjUzMTcyMTUyODY4ODg1.YbnfFQ.rpN22J3wt30ZH6Xa4mIEo5QEg_M')
+app.run('?')
