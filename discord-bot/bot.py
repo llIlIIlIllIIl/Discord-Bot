@@ -26,30 +26,7 @@ async def on_ready():
     print(app.guilds)
     g = app.guilds[0]  
     r = g.roles[1]      
-
-# join 
-@app.command()
-async def join(ctx):
-    try:
-        global vc
-        vc = await ctx.message.author.voice.channel.connect()
-    except:
-        try:
-            await vc.move_to(ctx.message.author.voice.channel)
-        except:
-            await ctx.send(embed = discord.Embed(title="Error", description = "채널에 유저가 접속하고 있지 않습니다.", color=0xFF0000))
-            
-# Leave
-@app.command()
-async def leave(ctx):
-    try:
-        await vc.disconnect()
-    except:
-        await ctx.send(embed = discord.Embed(title="Error", description = "채널에 접속하고 있지 않습니다.", color=0xFF0000))
      
-# Play
-
-
 # Greeting
 @app.command(aliases=['반가워'])
 async def 안녕(ctx):
@@ -83,12 +60,10 @@ async def neonsign_nickname(role):
 # Help    
 @app.command()
 async def 도움말(ctx):
-        embed = discord.Embed(title="Sin4U", description="노래하는 봇", color=0x4432a8)
+        embed = discord.Embed(title="Sin4U", description="봇", color=0x4432a8)
         embed.add_field(name="1. 인사", value="!안녕", inline = False)
         embed.add_field(name="2. 투표", value="!투표", inline = False)
         embed.add_field(name="3. 네온사인", value="!반짝반짝 (역할 필요)", inline=False)
-        embed.add_field(name="4. 음성채널 입장/퇴장", value="!join / !leave (초대자가 입장된 상태에만 가능)", inline = False)
-        embed.add_field(name="5. 음악", value="!play [Youtube URL] : 음악을 재생\n!pause : 일시정지 \n!resume :다시 재생 \n!stop : 중지", inline = False)
         embed.set_image(url="https://blog.kakaocdn.net/dn/WsyUB/btre7ur4HG7/HSR4G7FZCoTAig48akq8K0/img.jpg")
         await ctx.send(embed=embed)
         
